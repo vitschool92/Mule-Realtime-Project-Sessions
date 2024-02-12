@@ -1,0 +1,50 @@
+								Date: 07-Feb-2024
+							    MuleSoft Realtime Project
+								      Session-11
+							------------------------------
+							
+Recap: 
+-----
+What API / Batch ?
+To Send automated emails at every 2 minutes for account balance 
+
+
+
+To Send automated emails at every day 7PM ( IST).  
+Create pipe lines 
+Deploy into cloud hub 
+
+
+Cron- 0 0 8 ? * *
+
+
+https://docs.mulesoft.com/dataweave/latest/dataweave-cookbook-change-time-zone
+
+2 weeks once -
+
+Sprint demo - with PO 
+
+
+
+
+
+backlog grooming - 1 week 
+sprint planning - 2 weeks 
+  daily scrum - Every day (15-30)
+sprint demo - 2 weeks 
+sprint retrospective - 2weeks 
+
+ W W W 
+ What went well     -- design completed on time , development completed on time 
+                       Team collabration is good , i have learnt snowflake integratio 
+ What went wrong    -- NA , (which areas team has to improve )
+ What we need to improve -- The parllellism request has took 2 days
+
+ 
+
+http://vitech-bank-customer-acct-creation-api.us-e2.cloudhub.io/console
+
+
+
+sprint demo - you have to show case /explain what you have done in a sprint 
+  

@@ -1,0 +1,50 @@
+								Date: 02-Feb-2024
+							    MuleSoft Realtime Project
+								       Session-3
+							------------------------------
+ Recap:
+---------
+What is domain & Tech 
+    BFS ,ecom ,health care , travels .. 
+	MuleSoft
+Azure Devops 
+Project requirements documentation 
+
+
+ User story -> it is nothing but a task/requirement 
+ Requirements --> PO (product owner ) 
+                         --> BA (Business analyst)
+						      --> Architech/Tech lead ( project architecture )
+							    --> Dveloper/QA (Create technical userstories/sub tasks)
+ 
+ 
+ story points - 1 2 3 5 8 
+                1 day = 1 point = 6 hrs 
+ sprint - wed - tues (14 days) 2- 3 weeks 
+ 
+ Scrum master - schedlue meetings, work progress , issues ..etc  
+ 
+ Backlog grooming /refinement - 1 week   --> done 
+ Spring plannig - 2 weeks once 
+  Daily scrum meeting - daily for the 15 mins (15-30)
+ sprint review/demo - 2 weeks once 
+ retrospective - 2 weeks once 
+ 
+ 
+ 1. As a Customer
+	I want to Login to my account using card and PIN code
+	So that I can perform the transactions.
+	Acceptance Criteria –
+	• System must validate the card and pin code 
+	• In case Customer enters wrong Pin code three times then the system locks the card.
+	
+
+ As an Architect i want to design project architecture based on the requirements 
+ As a developer i want to design/develop the project based on the requirements
+ As a QA i want to test the application based on the requirements
+ 
+ 
+ Install softwares: https://www.youtube.com/watch?v=0im6CwPhNBA&list=PLFPnaYaZXRwwsUvW4_SKTrWZmBXfifpIF
+ 
+ 
+ 

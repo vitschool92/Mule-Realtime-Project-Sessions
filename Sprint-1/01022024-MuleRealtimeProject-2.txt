@@ -1,0 +1,101 @@
+								Date: 01-Feb-2024
+							    MuleSoft Realtime Project
+								       Session-2
+							------------------------------
+
+Agenda:
+------
+What is domain and what are the domains its available in IT/software
+Difference b/w domain & Tecnology
+How to access and work with Azure Devops
+How to create a group /project 
+How to add the users into project 
+Explain Requiremnts based on document 
+How to create user stories in ADO board.
+
+
+
+Recap of the last session:
+SDLC 
+Waterfall/Agile 
+Microsfot account
+
+---
+What is domain and what are the domains its available in IT/software
+
+Technology - Mulesoft , java , html ,css ..etc 
+
+Domain :
+Banking and Finacial Services (BFS)  : Software solutions for the banks (HDFC,SBI ..Morganstanly ..etc)
+E-commerce  : To buy or purchase some goods (Flipkart,Amazon , Myntra..etc)
+Health care and Medical : Appolo 
+Travles - Abhibus ,red bus
+Supply chain management (SCM): 
+HRM:
+Agriculter : 
+Telecom -
+
+Azure Devops: its a cloud platform where you can create a repos,pipelines , create work items (user stories,bugs )
+              Work tracking tool 
+JIRA : work tracking tool 
+			  
+dev.azure.com ---> to access ADO portal 
+
+
+
+Banking and Finacial Services (BFS):
+
+Agile :
+What type of meetings ? (All team memebres , PO,BA,Scrum master ,Architect,Dev,testers ..etc )
+ ----------------------
+ 1- Backlog grooming - 1 week - Requirements for a product , Groom the stories , user story points 1 --8
+ 2- Sprint planning - 2 weeks once -  dev/QA they need to pick / Assign the usierstoreis (Scrum master Assign )
+ 3- Daily scrum /Standup - every day it will happen (7 PM IST) - 15 mins ( with in sprint - 14 days)
+                            What you have done yesterday , What you are going to work today , Any issue/blockers
+ 4- Sprint review /demo - 2 weeks once - demo with PO and Team , Will take suggestions  
+ 5- Retrospective - WWW  - 2 weeks once 
+                    What went well 
+					what went wrong 
+					what we need to improve 
+					
+UserStory - it is nothing but requirement 
+1- Backlog grooming - (All team memebres , PO,BA,Scrum master ,Architect,Dev,testers ..etc )
+                       3PM to 4PM 
+
+business --> 
+   technical task 
+   
+ http://groups.umd.umich.edu/cis/course.des/cis375/active/class5/User-Stories-ATM.pdf  
+  
+
+https://youtu.be/QmqPunO5EsQ
+  
+   /createAccount :                                          
+
+Method : POST
+
+queryParams :
+
+customerName - required : max length 45 , min length 4
+
+bank - required: should be one of enum values ICICI , AXIS ,HDFC
+
+type - required : should be on of enum values [savings , current]
+
+branchName - required : min : 4 max : 10
+
+Body : json
+
+ accountNum - required: should be string and min max length is 10
+
+ atmPin : required : type string (but pass numbers in string) min max ength = 4
+
+ifscCode - required : min : 4 max : 10
+
+depositAmount : not mandatory . If sent , it should be number
+
+mailId : required : string contact : required : string
+
+Sample Response : 201 :
+
+{“status” : “Account Created Successfully with Account Number xxxxxxxx”}

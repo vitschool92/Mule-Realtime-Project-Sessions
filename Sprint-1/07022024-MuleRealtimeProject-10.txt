@@ -1,0 +1,77 @@
+								Date: 07-Feb-2024
+							    MuleSoft Realtime Project
+								      Session-10
+							------------------------------
+
+Recap:
+-----
+What is CI/CD ?
+What is the importance of CI/CD 
+What are the required configs (pom.xml ,azure-pipeline.yml)
+How to set up pipeline in ADO 
+Parllelism request 
+
+Agenda:
+----------
+What is the difference API /Batch ?
+
+API - Needs manual intervention 
+
+Batch -> there is no manual intervention , automatically it will run based on the time you schedule 
+
+   every one month your payslips ? credit card 
+
+-- 0 0 19 ? * *  -- evry day at 7PM
+
+-- 0 5 0 ? * *  -- every 5 minutes 
+
+${email.config.host}
+${email.config.port}
+${email.config.user}
+${email.config.password}
+
+mail.smtp.starttls.enable  true 
+
+
+Cron expression : https://docs.mulesoft.com/mule-runtime/latest/scheduler-concept
+
+Seconds (0-59)
+
+Minutes (0-59)
+
+Hours (0-23)
+
+Day of month (1-31)
+
+Month (1-12 or JAN-DEC)
+
+Day of the week (1-7 or SUN-SAT)
+
+Year (empty or a 4-digit year between 1970-2099, for example, 2019)
+
+The Scheduler supports Quartz Cron expressions. Here are a few examples:
+
+Expression	Behavior
+1/2 * * * * ?
+
+Run every 2 seconds of the day, every day.
+
+0 15 10 ? * *
+
+Run at 10:15 a.m., every day. 0 15 10 * * ? * and 0 15 10 * * ? produce the same effect.
+
+0 15 10 * * ? 2019
+
+Run at 10:15 a.m., every day during the year 2019.
+
+0 * 14 * * ?
+
+Run every minute starting at 2pm and ending at 2:59pm, every day.
+
+0 0/5 14 * * ?
+
+Run every 5 minutes starting at 2pm and ending at 2:55pm, every day
+
+1 1 1 1,7 * ?
+
+Run the first second of the first minute of the first hour, on the first and seventh day, every month.

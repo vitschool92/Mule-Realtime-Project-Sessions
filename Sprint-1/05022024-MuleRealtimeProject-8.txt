@@ -1,0 +1,79 @@
+								Date: 05-Feb-2024
+							    MuleSoft Realtime Project
+								      Session-8
+							------------------------------
+Recap:
+------
+Usecase :  whenever the new record for a customer is inserted into snowflake need to send an email
+What is scrum /daily updates 
+How to update/close user stories 
+
+
+Agenda:
+--------
+1- Create Environments in Anypoint platform 
+2- How to create repository in ADO / Branching strategies / How to clone and push your code 
+3- Deploy application into cloud hub (Manual process)
+ 
+Create Environments in Anypoint platform
+             local - local machine 
+dev - 1st - developers
+qa  - 2nd (testers are going to test our application)
+qa-1 -(optional)
+prod - 3rd production (live)  customer / end users 
+
+How to create repository in ADO / Branching strategies / How to clone and push your code 
+what is repo -> in order to store/svae your project files
+
+Github , Azure repo ,bitbucket 
+
+Git commands 
+create repo and clone the project 
+  clone <project-name> -b <branchname>
+  
+ copy your project code into repo folder 
+
+git status 
+git add .
+git commit -m "intial commit"
+git push -u origin <branchname >  
+
+git tutorial - https://www.youtube.com/watch?v=o1YDW_jnvvk&list=PLFPnaYaZXRwwvBL6hWxVJU-ZN6KoGKSqH
+
+
+How the team is going to interact in relatime 
+
+Microsoft team 
+slack 
+skype 
+zoom --
+
+---TASK ---
+Add user   vitschool21334@outlook.com
+
+pull request - add me 
+         i will review your code 
+you can complete merge 
+---------------
+Deploy application into cloud hub (Manual process)
+
+
+cloud hub url - https://vitech-bank-customer-acct-creation-api-o68ang.5sc6y6-4.usa-e2.cloudhub.io/
+
+input : 
+
+https://vitech-bank-customer-acct-creation-api-o68ang.5sc6y6-4.usa-e2.cloudhub.io/api/createAccount?customerName=Bala&bank=HDFC&type=savings&branchName=bnaglore
+
+{
+  "accountNum": "6546667124",
+  "atmPin": "3344",
+  "ifscCode": "HDFC0033",
+  "depositAmount": 0,
+  "mailId": "balavemala123@gmail.com",
+  "contact": 876454123
+}
+
+
+
+
+

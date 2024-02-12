@@ -1,0 +1,71 @@
+								Date: 06-Feb-2024
+							    MuleSoft Realtime Project
+								      Session-9
+							------------------------------
+Recap: 
+----------
+Create environments (dev,qa,prod)
+Create Azure repo , branching strategies , Git commands 
+ git clone <project url> -b branchname
+ 
+ push code 
+ --------
+ git status 
+ git add .
+ git commit -m "comments"
+ git push -u origin <branchname>
+ 
+Cloud hub deployment (manula process)
+
+
+Agenda:
+-------
+What is CI/CD ? 
+How to implement CI/CD for Mule project 
+
+what are the file i need to change ?
+pom.xml
+azure-pipeline.yml
+
+setting-- service configuration 
+Submit the parallelism 
+No hosted parallelism has been purchased or granted. To request a free parallelism grant, 
+please fill out the following form https://aka.ms/azpipelines-parallelism-request
+
+
+Pom.xml need to add below configurations
+https://docs.mulesoft.com/mule-runtime/latest/deploy-to-cloudhub
+
+<plugin>
+  <groupId>org.mule.tools.maven</groupId>
+  <artifactId>mule-maven-plugin</artifactId>
+  <version>3.7.1</version>
+  <extensions>true</extensions>
+  <configuration>
+    <cloudHubDeployment>
+      <uri>https://anypoint.mulesoft.com</uri>
+      <muleVersion>${app.runtime}</muleVersion>
+      <username>${username}</username>
+      <password>${password}</password>
+      <applicationName>${cloudhub.application.name}</applicationName>
+      <environment>${environment}</environment>
+      <region>${region}</region>
+      <workers>${workers}</workers>
+      <workerType>${workerType}</workerType>
+      <properties>
+        <key>value</key>
+      </properties>
+    </cloudHubDeployment>
+  </configuration>
+</plugin>
+
+
+
+
+
+----------
+https://repository.mulesoft.org/nexus-ee/content/repositories/releases-ee/
+MuleRepository
+vitechtalks_04 
+pwd -
+Mulesoft Enterprise
