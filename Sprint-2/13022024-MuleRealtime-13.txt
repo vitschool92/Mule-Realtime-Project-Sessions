@@ -1,0 +1,84 @@
+								Date: 13-Feb-2024
+							    MuleSoft Realtime Project
+								      Session-13
+							------------------------------
+Recap: 
+------
+Backlog grooming and sprint planning 
+SPrint-2 
+Desing for deposit API 
+Development for deposit API 
+
+
+
+copy input payload into another variable:
+
+%dw 2.0
+var inp= []
+output application/json
+---
+inp << payload reduce ((item, accumulator) ->  item )
+
+
+[1,2,3,4 ]
+1
+number + array -- wrong 
+number + number -- correct 
+org.mule.runtime.core.api.expression.ExpressionRuntimeException: "You called the function '+' with these arguments: 
+  1: Number (3000 as Number {encoding: "UTF-8", mediaType: "application/json; charset=UTF-...)
+  2: Array ([0E-9 as Number {class: "java.math.BigDecimal"}])
+
+But it expects one of these combinations:
+  (Array, Any)
+  (Date, Period)
+  (DateTime, Period)
+  (LocalDateTime, Period)
+  (LocalTime, Period)
+  (Number, Number)
+  (Period, DateTime)
+  (Period, LocalDateTime)
+  (Period, Time)
+  (Period, Date)
+  (Period, LocalTime)
+  (Time, Period)
+
+2| 	"totalAmount": vars.inpDepositAmt + payload.TOTALBALANCE,
+
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Trace:
+  at main (line: 2, column: 17)" evaluating expression: "{
+
+	"totalAmount": vars.inpDepositAmt + payload.TOTALBALANCE,
+
+	"bankAcct": payload.CUSTACCNUM ,
+
+	"bankType": payload.BANKNAME
+
+}".
+
+{
+  "totalAmount": 3000.000000000,
+  "bankAcct": [
+    "6546667133"
+  ],
+  "bankType": [
+    "HDFC"
+  ]
+}
+
+
+As a developer I want to develop API based on RAML and based on the below requirements
+/deposit :
+deposit resource is used to deposit the Balance of Valid account
+• Before deposit fetching total balance, you have to check whether there is any account
+existing with accountNumber and Bank Name.
+• If no, return the response saying “Account 1234567890 does not exist .
+Enter Valid Details”
+• If yes , deposit the amount , fetch previous balance and add the current deposit amount
+
+Note :
+• Upon successful deposit amount, send out a mail using GMAIl:
+• Subject : Amount deposit done for SBI is done today !
+• To : the email id sent in Body
+• From : your gmail id
+• Body : This is to inform you that your account has been Credited 123.00 today and total balance is 34567.

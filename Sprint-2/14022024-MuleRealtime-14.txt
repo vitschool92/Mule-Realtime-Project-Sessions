@@ -1,0 +1,81 @@
+								Date: 14-Feb-2024
+							    MuleSoft Realtime Project
+								      Session-14
+							------------------------------
+Recap of the last session:
+--------------------------
+Usecase : develop an api to Deposit amount for the bank customer 
+          Snowflake integration 
+		  Gmail integration 
+
+Agenda:
+-------
+Create Repository for new API 
+Implement CI/CD process
+
+
+customer acct creation - http://vitech-bank-customer-acct-creation-api.us-e2.cloudhub.io/console
+deposit amount: http://vitech-bank-customer-amt-deposit.us-e2.cloudhub.io/console 
+
+
+
+creation of account - Email 
+deposit - Email 
+every day at 9 PM - bank balance 
+
+
+token - 2nxrgfuqiazsjwqlfnm3homd7ph5c6o27suh54kj46s7wylxft5q
+
+
+design:
+ As a developer I want to desing RAML by using the below requirements
+/checkBalance :
+Method : GET
+queryParams : bank - required: should be one of enum values ICICI , AXIS , HDFC
+type - required : should be on of enum values [savings , current]
+ accountNum - required: should be string and min max length is 10
+atmPin : required : type string (but pass numbers in string) min max length = 4
+Sample Response : 200
+ {“status” : “Your total balance is xxxxxxxx as on 20-JAN-2024 is xxxxxx”}
+
+
+NOTE: Implement basic security for the API
+
+requirements :
+
+
+As a developer I want to develop API based on RAML and based on the below requirements
+/checkBalance :
+ 
+checkBalance resource is used to check the total Balance of Valid account
+• Before fetching total balance, you have to check whether there is any account
+existing with accountNumber and Bank Name.
+• If no, return the response saying “Account 1234567890 does not exist .
+Enter Valid Details”
+• If yes , check whether “accountStatus” = “Active” .If not, return
+response saying “Account 1234567890 temporarily locked. Please visit
+nearest Branch”
+• If account exists with accountNumber and Bank Name and status is “Active”.
+Check for atmPin whether it is valid or not
+• If atmPin is incorrect , and “wrongPin” value is already 3 then update
+accountstatus column in Database to “Locked” and return response :
+ “Maximum Attempts reached .Your Account 1234567890 is
+temporarily locked. Please reach nearest Branch”
+• If “wrongPin” value is less than 3 , then increment by 1 for every wrong
+attempt and return response saying “Login Attempt Failed .Attempts
+left : 2”
+• If atmPin is correct , the display the response as described in RAML
+Note :
+• Upon failure attempts , send out a mail using GMAIl:
+• Subject : Failed Attempt !
+• To : the email id sent in Body
+• From : your gmail id
+• Body : This is to inform you that there’s a failed attempt happened
+while transaction . Your Account will be locked after 3 attempts
+• Upon All attempts failed, send out a mail using GMAIl:
+• Subject : Account Locked !
+• To : the email id sent in Body
+• From : your gmail id
+• Body : This is to inform you that Your Account has been be locked
+due to 3 failed attempts. Please reach out nearest branch to unLock
+• No Mail should be sent on successful transaction

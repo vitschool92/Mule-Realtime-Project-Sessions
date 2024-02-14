@@ -1,0 +1,71 @@
+								Date: 13-Feb-2024
+							    MuleSoft Realtime Project
+								      Session-12
+							------------------------------
+Recap:
+------
+ Batch job using schedulers & Cron expression 
+ development & Create piplines and deploy into cloudhub 
+ Cron :    7PM IST      
+ Cron-     0 0 8 ? * *          (UTC)  (1:30 IST) 
+ Sprint demo & Sprint retrospective 
+ 
+Agenda:
+---------
+Backlog Grooming 
+Start Sprint-2 & Sprint planning 
+
+
+backlog grooming - 1 week   -- done 
+sprint planning - 2 weeks 
+  daily scrum - Every day (15-30)
+sprint demo - 2 weeks 
+sprint retrospective - 2weeks 
+
+
+vitech-bank-customer-acct-creation
+vitech-bank-customer-amt-deposit
+
+As a developer I want to desing RAML by using the below requirements
+/deposit :
+Method : PUT
+Body : json
+ accountNum - required: should be string and min max length is 10
+bank - required: should be one of enum values ICICI , AXIS ,HDFC ,SBI
+depositAmount : required: mandatory . If sent , it should be number
+Sample Response : 200 :
+{“status” : “Amount deposit successfully done for the Account Number xxxxxxxx”}
+
+NOTE: Implement basic security for the API
+
+
+
+As a developer I want to develop API based on RAML and based on the below requirements
+/deposit :
+deposit resource is used to deposit the Balance of Valid account
+• Before deposit fetching total balance, you have to check whether there is any account
+existing with accountNumber and Bank Name.
+• If no, return the response saying “Account 1234567890 does not exist .
+Enter Valid Details”
+• If yes , deposit the amount , fetch previous balance and add the current deposit amount
+Note :
+• Upon successful deposit amount, send out a mail using GMAIl:
+• Subject : Amount deposit done for SBI is done today !
+• To : the email id sent in Body
+• From : your gmail id
+• Body : This is to inform you that your account has been Credited 123.00 today and total balance is 34567.
+
+
+{
+          "accountNum": "1234567892",
+          "bank": "HDFC",
+          "depositAmount" : 3000
+        }
+		
+update bank_transactions 
+    set TOTALBALANCE =:totalAmount 
+where custaccnum =:bankAcct and bankname =:bankType 
+
+
+
+
