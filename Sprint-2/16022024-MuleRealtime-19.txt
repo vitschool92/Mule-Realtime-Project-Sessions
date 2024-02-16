@@ -1,0 +1,134 @@
+								Date: 16-Feb-2024
+							    MuleSoft Realtime Project
+								      Session-19
+							------------------------------
+Recap:
+------
+Design an API for Lock/Unlock Account  (Admins/banks) 
+Design for get all Locked Accounts 
+Creted repo in Azure ADO 
+
+Agenda:
+--------
+Develop an API for Lock/Unlock Account  (Admins/banks) 
+Develop an API to get all Locked Accounts 
+
+vitech-bank-cust-acct-LockUnlock
+
+Create repository in ADO 
+Create sample projet from Anypoint studio
+Copy sample project code into ADO repo 
+Delete Sample project from Anypoint Studio and Import the project from ADO Repo
+
+
+Import the RAML from Design Center . RAML will be available in src/main/resource 
+
+Lock:
+--------
+sizeOf(payload) == 1 and payload.ACCOUNTSTATUS[0] == "Active" and vars.inputPayload.acctStatus == "Lock"
+     update the db as Locked 
+	 
+sizeOf(payload) == 1 and payload.ACCOUNTSTATUS[0] == "Locked" and vars.inputPayload.acctStatus == "Lock"
+   Send a message saying like "Your account is alredy locked"
+   
+ Unlock
+---------- 
+sizeOf(payload) == 1 and payload.ACCOUNTSTATUS[0] == "Locked" and vars.inputPayload.acctStatus == "Unlock"
+     update the db as Active 
+	 
+sizeOf(payload) == 1 and payload.ACCOUNTSTATUS[0] == "Active" and vars.inputPayload.acctStatus == "Unlock"
+   Send a message saying like "Your account is alredy in Active Status"   
+   
+
+
+Task-2 
+----------
+ Complete GMAIL integration for this API (lock/unlock scenario)
+ Create Azure pipelines and deploy this into cloud hub 
+ 
+Task-1: (High)  (Similar to check balance) Session-16 & 17
+--------------
+Design-Create REST API for withdraw an amount
+As a developer I want to desing RAML by using the below requirements
+/withDraw :
+Method : POST
+queryParams :
+bank - required: should be one of enum values ICICI , AXIS ,HDFC,SBI
+type - required : should be on of enum values [savings , current]
+accountNum - required: should be string and min max length is 10
+ atmPin : required : type string (but pass numbers in string) min max length = 4 amountToBeWithdraw : Required. it should be number
+Sample Response : 200 :
+{“status” : “Amount xxxx is debited . Your total balance is xxxxxxxx”}
+
+
+
+Develop- REST API for withdraw an amount
+/withDraw :
+
+ 
+withDraw resource is used to withdraw the amount from Valid account
+All validations done for checkBalance should be done here as well (make use of
+sub-flows and flows so that you can re-use the logic)
+
+• Before fetching total balance, you have to check whether there is any account
+existing with accountNumber and Bank Name.
+
+• If no, return the response saying “Account 1234567890 does not exist .
+Enter Valid Details”
+
+• If yes , check whether “accountStatus” = “Active” .If not, return
+response saying “Account 1234567890 temporarily locked. Please visit nearest Branch”
+
+• If account exists with accountNumber and Bank Name and status is “Active”.
+Check for atmPin whether it is valid or not
+
+• If atmPin is incorrect , and “wrongPin” value is already 3 then update
+accountstatus column in Database to “Locked” and return response :
+
+ “Maximum Attempts reached .Your Account 1234567890 is temporarily locked. Please reach nearest Branch”
+
+• If “wrongPin” value is less than 3 , then increment by 1 for every wrong
+attempt and return response saying “Login Attempt Failed .Attempts left : 2”
+
+<<Main logic>>
+• If atmPin is correct :
+• Check if total Balance is less than amountTobeWithdrawn , then send
+out a response saying “Insufficient Funds”
+
+• if total Balance is greater than amountTobeWithdrawn . Then deduct
+amount and update the Database with final balance after deduction
+
+• Send out a response as defined in RAML
+
+Note :
+• Upon failure attempts , send out a mail using GMAIl:
+• Subject : Failed Attempt !
+• To : the email id sent in Body
+• From : your gmail id
+• Body : This is to inform you that there’s a failed attempt happened
+while transaction . Your Account will be locked after 3 attempts
+• Upon All attempts failed, send out a mail using GMAIl:
+• Subject : Account Locked !
+• To : the email id sent in Body
+• From : your gmail id
+• Body : This is to inform you that Your Account has been be locked
+due to 3 failed attempts. Please reach out nearest branch to unLock
+• Upon Successful withdrawal , send out a mail using GMAIl:
+• Subject : Transaction Alert!
+• To : the email id sent in Body
+• From : your gmail id
+• Body : This is to inform you that Your Account has been debited with
+
+xxxx amount and your Total Balance is xxxx
+
+
+ 
+ 
+ 
+
+
+
+
+
+
+

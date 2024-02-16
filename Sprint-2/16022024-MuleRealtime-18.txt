@@ -1,0 +1,56 @@
+								Date: 16-Feb-2024
+							    MuleSoft Realtime Project
+								      Session-18
+							------------------------------
+Recap:
+-------
+Develop rest API for customer to check the balance using ATM pin
+Implement Gmail integration for failed attempts and Locked status 
+
+Agenda:
+-------
+Design an API for Lock/Unlock Account  (Admins/banks) 
+Design for get Locked Accounts 
+
+
+Development --Anypoint studio
+vitech-bank-cust-acct-LockUnlock
+
+
+/AcctLockUnLock :
+Method : PUT
+Body : json
+user with default value “admin”
+password with default value “admin”
+accountNum - required: should be string and min max length is 10
+bank - required: should be one of enum values ICICI , AXIS , HDFC ,SBI
+acctStatus–required: should be one for enum values lock,UnLock
+
+sample response : 200
+{
+"status": "Your Account- XXXXXXXXXXX With Bank- HDFC  is Unlocked/Locked Now"
+}
+
+NOTE: Implement basic security for the API
+
+
+As a developer I want to desing RAML by using the below requirements
+
+/getLockedAccts:
+Method : GET
+queryParams :
+bank - required: should be one of enum values ICICI , AXIS , HDFC,SBI
+AcctStatus –required: should be one for enum values Locked
+Sample Response : 200 :
+{
+customerName : "ravi",
+bank: "HDFC",
+type - "savings",
+branchName -"BLR",
+ accountNum -"54326781234",
+ifscCode - "HDFC10034",
+mailId : "ravi@gmail.com",
+cardStatus : "Locked"
+}
+
+NOTE: Implement basic security for the API
