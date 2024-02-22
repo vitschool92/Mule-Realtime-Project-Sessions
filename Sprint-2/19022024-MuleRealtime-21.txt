@@ -1,0 +1,84 @@
+								Date: 19-Feb-2024
+							    MuleSoft Realtime Project
+								      Session-21
+							------------------------------
+Create batch flow to Send Emails for Locked accounts
+
+Cron expression - 0 30 12 ? * *   (6PM IST)
+
+select * from bank_transactions where accountstatus = 'Locked'
+
+for each:
+---------
+It will run in sequenctial mode 
+suppose there are 10 records , the flow if failed at 5th record . The entire flow will get stopped 
+payload scope after for each it wont change 
+
+parllel for each:
+-------------------
+It will run in parllel mode .
+suppose there are 10 records , the flow if failed at 5th record . The entire flow will get run and fialed 
+                                                                     record it will get dispalyed at the last
+payload scope after parllel for each it will change																	 
+
+
+INFO  2024-02-19 22:00:36,582 [[MuleRuntime].uber.07: [vitech-bank-sch-lock-cust-acct].vitech-bank-sch-lock-cust-acctFlow.BLOCKING @13ff37e] [processor: vitech-bank-sch-lock-cust-acctFlow/processors/2/processors/0; event: 2fa78ea0-cf44-11ee-8adc-3a00255e8bed] org.mule.runtime.core.internal.processor.LoggerMessageProcessor: inside for each before sending an email
+INFO  2024-02-19 22:00:56,079 [[MuleRuntime].uber.03: [vitech-bank-sch-lock-cust-acct].vitech-bank-sch-lock-cust-acctFlow.BLOCKING @13ff37e] [processor: vitech-bank-sch-lock-cust-acctFlow/processors/2/processors/2; event: 2fa78ea0-cf44-11ee-8adc-3a00255e8bed] org.mule.runtime.core.internal.processor.LoggerMessageProcessor: email sent sucessfully for vitschool92@gmail.com
+INFO  2024-02-19 22:01:02,305 [[MuleRuntime].uber.03: [vitech-bank-sch-lock-cust-acct].vitech-bank-sch-lock-cust-acctFlow.BLOCKING @13ff37e] [processor: vitech-bank-sch-lock-cust-acctFlow/processors/2/processors/0; event: 2fa78ea0-cf44-11ee-8adc-3a00255e8bed] org.mule.runtime.core.internal.processor.LoggerMessageProcessor: inside for each before sending an email
+INFO  2024-02-19 22:01:11,370 [[MuleRuntime].uber.07: [vitech-bank-sch-lock-cust-acct].vitech-bank-sch-lock-cust-acctFlow.BLOCKING @13ff37e] [processor: vitech-bank-sch-lock-cust-acctFlow/processors/2/processors/2; event: 2fa78ea0-cf44-11ee-8adc-3a00255e8bed] org.mule.runtime.core.internal.processor.LoggerMessageProcessor: email sent sucessfully for vitschool92@gmail.com
+INFO  2024-02-19 22:01:15,411 [[MuleRuntime].uber.07: [vitech-bank-sch-lock-cust-acct].vitech-bank-sch-lock-cust-acctFlow.BLOCKING @13ff37e] [processor: vitech-bank-sch-lock-cust-acctFlow/processors/2/processors/0; event: 2fa78ea0-cf44-11ee-8adc-3a00255e8bed] org.mule.runtime.core.internal.processor.LoggerMessageProcessor: inside for each before sending an email
+INFO  2024-02-19 22:01:22,805 [[MuleRuntime].uber.03: [vitech-bank-sch-lock-cust-acct].vitech-bank-sch-lock-cust-acctFlow.BLOCKING @13ff37e] [processor: vitech-bank-sch-lock-cust-acctFlow/processors/2/processors/2; event: 2fa78ea0-cf44-11ee-8adc-3a00255e8bed] org.mule.runtime.core.internal.processor.LoggerMessageProcessor: email sent sucessfully for deepthikotlareddy19@gmail.com
+INFO  2024-02-19 22:01:25,939 [[MuleRuntime].uber.07: [vitech-bank-sch-lock-cust-acct].vitech-bank-sch-lock-cust-acctFlow.CPU_LITE @4755e39] [processor: vitech-bank-sch-lock-cust-acctFlow/processors/0; event: 536be610-cf44-11ee-8adc-3a00255e8bed] org.mule.runtime.core.internal.processor.LoggerMessageProcessor: -----------Schulder Started for Locked accounts emails-------------------
+
+
+
+INFO  2024-02-19 22:05:19,174 [[MuleRuntime].uber.03: [vitech-bank-sch-lock-cust-acct].vitech-bank-sch-lock-cust-acctFlow.CPU_LITE @21f5785a] [processor: vitech-bank-sch-lock-cust-acctFlow/processors/0; event: de6375d0-cf44-11ee-9d56-3a00255e8bed] org.mule.runtime.core.internal.processor.LoggerMessageProcessor: -----------Schulder Started for Locked accounts emails-------------------
+INFO  2024-02-19 22:05:19,950 [[MuleRuntime].uber.03: [vitech-bank-sch-lock-cust-acct].vitech-bank-sch-lock-cust-acctFlow.CPU_LITE @21f5785a] [processor: vitech-bank-sch-lock-cust-acctFlow/processors/2/processors/0; event: de6375d0-cf44-11ee-9d56-3a00255e8bed] org.mule.runtime.core.internal.processor.LoggerMessageProcessor: inside for each before sending an email
+INFO  2024-02-19 22:05:19,954 [[MuleRuntime].uber.04: [vitech-bank-sch-lock-cust-acct].vitech-bank-sch-lock-cust-acctFlow.CPU_LITE @21f5785a] [processor: vitech-bank-sch-lock-cust-acctFlow/processors/2/processors/0; event: de6375d0-cf44-11ee-9d56-3a00255e8bed] org.mule.runtime.core.internal.processor.LoggerMessageProcessor: inside for each before sending an email
+INFO  2024-02-19 22:05:19,954 [[MuleRuntime].uber.03: [vitech-bank-sch-lock-cust-acct].vitech-bank-sch-lock-cust-acctFlow.CPU_LITE @21f5785a] [processor: vitech-bank-sch-lock-cust-acctFlow/processors/2/processors/0; event: de6375d0-cf44-11ee-9d56-3a00255e8bed] org.mule.runtime.core.internal.processor.LoggerMessageProcessor: inside for each before sending an email
+INFO  2024-02-19 22:05:26,152 [[MuleRuntime].uber.04: [vitech-bank-sch-lock-cust-acct].vitech-bank-sch-lock-cust-acctFlow.BLOCKING @5bfe7c73] [processor: vitech-bank-sch-lock-cust-acctFlow/processors/2/processors/2; event: de6375d0-cf44-11ee-9d56-3a00255e8bed] org.mule.runtime.core.internal.processor.LoggerMessageProcessor: email sent sucessfully for deepthikotlareddy19@gmail.com
+INFO  2024-02-19 22:05:26,195 [[MuleRuntime].uber.05: [vitech-bank-sch-lock-cust-acct].vitech-bank-sch-lock-cust-acctFlow.BLOCKING @5bfe7c73] [processor: vitech-bank-sch-lock-cust-acctFlow/processors/2/processors/2; event: de6375d0-cf44-11ee-9d56-3a00255e8bed] org.mule.runtime.core.internal.processor.LoggerMessageProcessor: email sent sucessfully for vitschool92@gmail.com
+INFO  2024-02-19 22:05:26,384 [[MuleRuntime].uber.08: [vitech-bank-sch-lock-cust-acct].vitech-bank-sch-lock-cust-acctFlow.BLOCKING @5bfe7c73] [processor: vitech-bank-sch-lock-cust-acctFlow/processors/2/processors/2; event: de6375d0-cf44-11ee-9d56-3a00255e8bed] org.mule.runtime.core.internal.processor.LoggerMessageProcessor: email sent sucessfully for vitschool92@gmail.com
+
+
+
+org.mule.runtime.core.internal.message.DefaultMessageBuilder$MessageImplementation
+{
+  payload={ATMPIN=2233, ACCOUNTTYPE=current, PHONENUMBER=876454332, IFSCCODE=HDFC00022, WRONGPIN=0, ACCOUNTSTATUS=Locked, CUSTACCNUM=4444567857, MAILID=vitschool92@gmail.com, BANKNAME=ICICI, TRANSACTIONTIMESTAMP=2024-02-08T03:30:58.125Z[UTC], TOTALBALANCE=10000.000000000, CUSTNAME=TEJA, CID=59, BRANCHNAME=MPLL}
+  mediaType=application/java; charset=UTF-8
+  attributes=<not set>
+  attributesMediaType=*/*
+}, 
+org.mule.runtime.core.internal.message.DefaultMessageBuilder$MessageImplementation
+{
+  payload={ATMPIN=2233, ACCOUNTTYPE=savings, PHONENUMBER=876454332, IFSCCODE=HDFC00022, WRONGPIN=3, ACCOUNTSTATUS=Locked, CUSTACCNUM=1234567857, MAILID=vitschool92@gmail.com, BANKNAME=ICICI, TRANSACTIONTIMESTAMP=2024-02-14T15:47:14.379Z[UTC], TOTALBALANCE=0E-9, CUSTNAME=Ravitheja , CID=62, BRANCHNAME=kormangla}
+  mediaType=application/java; charset=UTF-8
+  attributes=<not set>
+  attributesMediaType=*/*
+}, 
+org.mule.runtime.core.internal.message.DefaultMessageBuilder$MessageImplementation
+{
+  payload={ATMPIN=2233, ACCOUNTTYPE=savings, PHONENUMBER=876454332, IFSCCODE=HDFC00022, WRONGPIN=3, ACCOUNTSTATUS=Locked, CUSTACCNUM=1234567856, MAILID=deepthikotlareddy19@gmail.com, BANKNAME=HDFC, TRANSACTIONTIMESTAMP=2024-02-15T01:36:17.702Z[UTC], TOTALBALANCE=30000.000000000, CUSTNAME=deepthi, CID=64, BRANCHNAME=bangalore}
+  mediaType=application/java; charset=UTF-8
+  attributes=<not set>
+  attributesMediaType=*/*
+}]
+
+
+.internal.processor.LoggerMessageProcessor: inside for each before sending an email
+INFO  2024-02-19 22:13:11,523 [[MuleRuntime].uber.04: [vitech-bank-sch-lock-cust-acct].vitech-bank-sch-lock-cust-acctFlow.BLOCKING @109c9b88] [processor: vitech-bank-sch-lock-cust-acctFlow/processors/2/processors/2; event: f58018d0-cf45-11ee-917b-3a00255e8bed] org.mule.runtime.core.internal.processor.LoggerMessageProcessor: email sent sucessfully for vitschool92@gmail.com
+INFO  2024-02-19 22:13:11,525 [[MuleRuntime].uber.04: [vitech-bank-sch-lock-cust-acct].vitech-bank-sch-lock-cust-acctFlow.BLOCKING @109c9b88] [processor: vitech-bank-sch-lock-cust-acctFlow/processors/2/processors/0; event: f58018d0-cf45-11ee-917b-3a00255e8bed] org.mule.runtime.core.internal.processor.LoggerMessageProcessor: inside for each before sending an email
+INFO  2024-02-19 22:13:14,810 [[MuleRuntime].uber.03: [vitech-bank-sch-lock-cust-acct].vitech-bank-sch-lock-cust-acctFlow.BLOCKING @109c9b88] [processor: vitech-bank-sch-lock-cust-acctFlow/processors/2/processors/2; event: f58018d0-cf45-11ee-917b-3a00255e8bed] org.mule.runtime.core.internal.processor.LoggerMessageProcessor: email sent sucessfully for vitschool92@gmail.com
+INFO  2024-02-19 22:13:14,813 [[MuleRuntime].uber.03: [vitech-bank-sch-lock-cust-acct].vitech-bank-sch-lock-cust-acctFlow.BLOCKING @109c9b88] [processor: vitech-bank-sch-lock-cust-acctFlow/processors/2/processors/0; event: f58018d0-cf45-11ee-917b-3a00255e8bed] org.mule.runtime.core.internal.processor.LoggerMessageProcessor: inside for each before sending an email
+INFO  2024-02-19 22:13:18,099 [[MuleRuntime].uber.04: [vitech-bank-sch-lock-cust-acct].vitech-bank-sch-lock-cust-acctFlow.BLOCKING @109c9b88] [processor: vitech-bank-sch-lock-cust-acctFlow/processors/2/processors/2; event: f58018d0-cf45-11ee-917b-3a00255e8bed] org.mule.runtime.core.internal.processor.LoggerMessageProcessor: email sent sucessfully for deepthikotlareddy19@gmail.com
+INFO  2024-02-19 22:13:18,209 [[MuleRuntime].uber.04: [vitech-bank-sch-lock-cust-acct].vitech-bank-sch-lock-cust-acctFlow.BLOCKING @109c9b88] [processor: vitech-bank-sch-lock-cust-acctFlow/processors/3; event: f58018d0-cf45-11ee-917b-3a00255e8bed] org.mule.runtime.core.internal.processor.LoggerMessageProcessor: -----------payload
+
+
+
+Links:
+----------
+
+Customer acct creation - http://vitech-bank-customer-acct-creation-api.us-e2.cloudhub.io/console
+Deposit amount- http://vitech-bank-customer-amt-deposit.us-e2.cloudhub.io/console 
+Check Balance- http://vitech-bank-customer-check-balance.us-e2.cloudhub.io/console/
+Lock/Unlock account - http://vitech-bank-cust-acct-lockunlock.us-e2.cloudhub.io/console/

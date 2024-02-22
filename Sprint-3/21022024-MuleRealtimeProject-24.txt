@@ -1,0 +1,19 @@
+								Date: 21-Feb-2024
+							    MuleSoft Realtime Project
+								      Session-24
+							------------------------------
+Recap:
+-------
+What is Munit & importance 
+How to create Munit Test cases
+What is Code coverage 
+How To gereate Code coverage report
+How to mock data
+
+
+Agenda:
+--------
+Code optimization for vitech-Account-Creation-api
+Create Munit & Code coverage 
+
+By using target value & target variable input payload didn't get change the entire flow

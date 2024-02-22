@@ -1,0 +1,53 @@
+								Date: 19-Feb-2024
+							    MuleSoft Realtime Project
+								      Session-20
+							------------------------------
+Recap:
+-------
+Develop an API for Lock/Unlock Account  (cutomer care/Admins/banks) 
+Develop an API to get all Locked Accounts (Hdfc,axis,SBi,ICICI)
+
+vitech-bank-cust-acct-LockUnlock
+
+Create repository in ADO 
+Create sample projet from Anypoint studio
+Copy sample project code into ADO repo 
+Delete Sample project from Anypoint Studio and Import the project from ADO Repo
+
+
+Import the RAML from Design Center . RAML will be available in src/main/resource 
+
+Lock:
+--------
+sizeOf(payload) == 1 and payload.ACCOUNTSTATUS[0] == "Active" and vars.inputPayload.acctStatus == "Lock"
+     update the db as Locked 
+	 
+sizeOf(payload) == 1 and payload.ACCOUNTSTATUS[0] == "Locked" and vars.inputPayload.acctStatus == "Lock"
+   Send a message saying like "Your account is alredy locked"
+   
+ Unlock
+---------- 
+sizeOf(payload) == 1 and payload.ACCOUNTSTATUS[0] == "Locked" and vars.inputPayload.acctStatus == "Unlock"
+     update the db as Active 
+	 
+sizeOf(payload) == 1 and payload.ACCOUNTSTATUS[0] == "Active" and vars.inputPayload.acctStatus == "Unlock"
+   Send a message saying like "Your account is alredy in Active Status"   
+
+							
+Agenda:
+--------
+Gmail integration for Lock/unlock 
+Cache - in memory 
+implement CI/CD and deploy into cloudhub 
+
+• Upon Successful Lock/unLock , send out a mail using GMAIl:
+• Subject : Account Unlocked!
+• To : the email id sent in Body
+• From : your gmail id
+• Body : This is to inform you that Your Account has been unlocked
+NOTE : Same for Locked cards
+
+
+
+Lock/Unlock account - http://vitech-bank-cust-acct-lockunlock.us-e2.cloudhub.io/console/
+

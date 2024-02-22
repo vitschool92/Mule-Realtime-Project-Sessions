@@ -1,0 +1,45 @@
+								Date: 20-Feb-2024
+							    MuleSoft Realtime Project
+								      Session-23
+							------------------------------
+
+Recap:
+-------
+Parse template 
+Cache Technique 
+
+
+Munit:
+-------
+MUnit is mule application testing framework. 
+It will allows you to easily build automated tests for your integrations and APIs.
+
+
+ a = 2
+ b = 3
+ 
+ addition 
+ c = a + b;   (sub) 
+ 5 
+ 
+ actual output: 5      test pass 
+ expected output: 5
+
+
+Implemenatation of Munit:
+--------------------------
+1) we need to create empty test case 
+2) we need to click on the flow and perform auto record option 
+3) you can goto postman / thunder client to record the test cases.
+
+
+Test cases:
+--------------
+Account not exists in database 
+Account exists with Active Status wrong pin first attempt 
+Account exists with Active Status wrong pin 2nd attempt
+Account exists with Active Status wrong pin 3rd attempt (locked)
+Account exists with Locked Status user is trying to fetch account balance 
+Account exists with Active Status wrong pin first/2 attempt wrong 3rd attempt successful
+Account exists with Active Status Correct pin
+

@@ -1,0 +1,61 @@
+								Date: 22-Feb-2024
+							    MuleSoft Realtime Project
+								      Session-26
+							------------------------------
+Recap:
+--------							
+What is Security 
+What is Authentication vs Authrization 
+Apply security policies to APIS 
+  Auto discovery 
+  with out proxy API 
+
+
+Agenda:
+-----------
+with out proxy ApI how to apply security 
+What is the difference between proxy api / with out proxy 
+
+Secure proprties 
+How to encrypty & decrpty username /pwd 
+
+
+
+
+https://secure-properties-api.us-e1.cloudhub.io/
+
+Blowfish algorithm 
+key    - mulesoftProject$@Key
+
+
+pwd      - 4H8JfEGSFU3wzk+A0+Uaew==
+username - dyzJpsG9XZZA3dNe8iNUvg==
+
+
+how do we access secure properties:
+${secure::db.sfc.user}
+${secure::db.sfc.password}
+
+
+secure properties 
+  goto exchange --> secure and add depenedancy 
+
+goto global elements search secure properties --> we need to configure algorithm /key 
+how to define secure properties in yaml file
+by using  ![]
+-----------------------------------------
+	user: "![dyzJpsG9XZZA3dNe8iNUvg==]"
+  password: "![4H8JfEGSFU3wzk+A0+Uaew==]"
+  
+  
+
+Services - 7
+
+
+http://vitech-bank-customer-check-balance.us-e2.cloudhub.io/api   -- original 
+
+http://vitech-check-bal-proxy-api.us-e2.cloudhub.io/checkBalance
+
+
+http://vitech-check-bal-proxy-api.us-e2.cloudhub.io/checkBalance?bank=ICICI&acctType=savings&accountNum=1337654310&atmPin=3344
+

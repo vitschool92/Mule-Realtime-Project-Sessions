@@ -1,0 +1,80 @@
+								Date: 21-Feb-2024
+							    MuleSoft Realtime Project
+								      Session-25
+							------------------------------
+Recap:
+--------
+Code Optimization techniques 
+Target value and Target variable ( To avoid inputpayload override)
+Munit & Code coverage 
+
+
+Agenda:
+-------
+Security ?
+How to apply security for APIs ?
+
+
+Security : 
+------------
+Protection (Mob,home,laptops)
+Hiding 
+
+We are going to provide Authentication:
+
+Face book ->   user , pwd 
+
+Authentication : Verifying the identity of users or systems attempting to access the resources or services
+                 Vitech ->   swipe your id card   - enter into office 
+				 facebook -> user name / password (match)
+
+Authorization: Granting permisssions and access rights to authenticated users or systems based on their roles.
+               Vitech -> ODC (cabine)   --> Admin
+			   company website -->   dev , test , Team lead , Manager 
+			                         user name / pwd (authentication)
+						dev/test applied leave for 2 days ...(Manager )   			 
+
+
+How to apply security for APIs ?
+---------------------------------
+
+Anypoint platform -> anypoint mangaer (API Maanger) -> Create API 
+                 Copy Api instance id - 19317675
+				 Goto Project -> Global configurations --> Select auto discovery --> add the API id  and flow
+				 Copy client id and secret from <Access management tab >
+				 Client id - 27d6b65b7ba9423495dec51d0db50805
+				 Client secret - 92850B96C782483EA0D4a0C0544c550f
+				 
+				 Goto Project --> pom.xml need to add below values in configuration under cloudhubdeployment section
+				 
+				 <anypoint.platform.client_id>27d6b65b7ba9423495dec51d0db50805</anypoint.platform.client_id>
+				<anypoint.platform.client_secret>92850B96C782483EA0D4a0C0544c550f</anypoint.platform.client_secret>
+				 
+				 Push your code into ADO Repo / Github/Bitbucket 
+				 Deploy the code into Cloudhub 
+				 
+				 Goto APi manager and verify the status (initally it will be unregisterd ) 
+				                             it is going to chnage it as Active 
+											 
+				Once it is Active we can apply security Policies 
+				    
+				 
+				 
+				Basic Authentication 
+				Rate limiting 	
+				 
+				 https://docs.mulesoft.com/gateway/latest/policies-included-basic-auth-simple
+				 
+				 
+				 
+				 
+
+
+Links:
+----------
+
+Customer acct creation - http://vitech-bank-customer-acct-creation-api.us-e2.cloudhub.io/console
+Deposit amount- http://vitech-bank-customer-amt-deposit.us-e2.cloudhub.io/console 
+Check Balance- http://vitech-bank-customer-check-balance.us-e2.cloudhub.io/console/
+Lock/Unlock account - http://vitech-bank-cust-acct-lockunlock.us-e2.cloudhub.io/console/
+

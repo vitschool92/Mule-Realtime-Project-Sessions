@@ -1,0 +1,63 @@
+								Date: 20-Feb-2024
+							    MuleSoft Realtime Project
+								      Session-22
+							------------------------------
+How to create Sprint & What are the user stories we are going to pick up
+How to create sub taks for that 
+Email Enhancements 
+Cache implementation 
+
+
+Sprint-1 & 2 -> Completed 	
+
+4 Rest APIs
+2 Schedulers 
+
+1 - Assignment - Withdraw functionality (Students Assignment)
+
+
+Parse template 
+Cache - In memory location 
+
+0 30 13 ? * *
+
+
+Parse template--
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		HTML table border Attribute
+	</title>
+	<style>
+		body {
+			text-align: center;
+		}
+
+		table {
+			margin: 0 auto;
+			height: 20vh;
+			width: 40vh;
+		}
+
+		h1 {
+			color: green;
+		}
+        h5 {
+			color: red;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>Welcome to VITech Talks</h1>
+	<h3>#[vars.emailBody]</h3>
+    
+    <a href="https://www.youtube.com/@vitechtalks6017" target="_blank">Visit VITechTalks!</a> 
+    <h5>NOTE: This is an automated email please do not reply to this email</h5>
+	
+</body>
+
+</html>
