@@ -28,8 +28,8 @@ Blowfish algorithm
 key    - mulesoftProject$@Key
 
 
-pwd      - 4H8JfEGSFU3wzk+A0+Uaew==
-username - dyzJpsG9XZZA3dNe8iNUvg==
+pwd      - 4H8JfEGSFU3wz
+username - dyzJpsG9XZZA
 
 
 how do we access secure properties:
@@ -44,8 +44,8 @@ goto global elements search secure properties --> we need to configure algorithm
 how to define secure properties in yaml file
 by using  ![]
 -----------------------------------------
-	user: "![dyzJpsG9XZZA3dNe8iNUvg==]"
-  password: "![4H8JfEGSFU3wzk+A0+Uaew==]"
+	user: "![dyzJpsG9XZ]"
+  password: "![4H8JfEGSFU3]"
   
   
 

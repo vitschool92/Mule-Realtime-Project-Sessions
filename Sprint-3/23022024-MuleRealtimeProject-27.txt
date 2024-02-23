@@ -1,0 +1,39 @@
+								Date: 23-Feb-2024
+							    MuleSoft Realtime Project
+								      Session-27
+							------------------------------
+
+Error Handling:
+----------------
+Handling erorrs are much important when dealing with APIs
+
+Compile time :  Handle by using Anypoint Studio 
+
+Run Time:  We need to handle using Error handling connector in MuleSoft
+
+Connectors:
+
+Raise Error - If user want to throw custom errors 
+On error Continue - It will not iterupt the entire flow and it will continue with error message
+On erorr Propagate - It will interup the flow and throw an error message to use 
+
+Validation - is number , is email ..etc 
+
+
+
+
+Backlog grooming  -1 week
+Sprint planning  (high prioroty ) -2 weeks
+ sprint strat - Daily Scrum Meetings (DSM) - daily 
+Sprint demo - 2 week 
+Sprint retrospective (W W W) - 2 week 
+
+Product owner (PO) 
+BA 
+Scrum Master 
+Architect 
+Tech lead 
+Dev
+Qa 
+Admins 
+
